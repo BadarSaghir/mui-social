@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Button, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+import {Settings,AddCircle} from '@mui/icons-material'
 import './App.css';
 
 function App() {
+  styled(Button)()
+  const BlueButton = styled(Button)(({theme})=>({
+    
+      backgroundColor:"skyblue",
+      color:theme.palette.otherColor?.main,
+      margin:5,
+      
+      "&:hover":{
+       backgroundColor:"lightblue",
+      },
+      "&:disabled":{
+        
+      }
+   
+  }))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+   <div>
+    <Button variant='contained' size='small' color='success'
+     startIcon={<Settings />}>Contained</Button>   
+    <Button endIcon={ <AddCircle />} variant='outlined' size='medium'>Outlined</Button>   
+    <Button variant='text' size='large'>text</Button> 
+    <BlueButton>I am Blue</BlueButton>  
+    <Typography variant='h1' component={"p"}> I am Typography</Typography>
+
     </div>
   );
 }
